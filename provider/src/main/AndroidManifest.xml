@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.muzi.provider">
+
+    <!--provider读写权限-->
+    <uses-permission android:name="com.ekwing.wisdom.permission.READ_CONTENT" />
+    <uses-permission android:name="com.ekwing.wisdom.permission.WRITE_CONTENT" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".EkwContentProvider"
+            android:authorities="com.ekwing.wisdom.teacher.EkwContentProvider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:process=":provider"
+            android:readPermission="com.ekwing.wisdom.permission.READ_CONTENT"
+            android:writePermission="com.ekwing.wisdom.permission.WRITE_CONTENT" />
+
+    </application>
+
+    <!--provider读写权限-->
+    <permission
+        android:name="com.ekwing.wisdom.permission.READ_CONTENT"
+        android:label="Permission for read content provider"
+        android:protectionLevel="normal" />
+
+    <permission
+        android:name="com.ekwing.wisdom.permission.WRITE_CONTENT"
+        android:label="Permission for write content provider"
+        android:protectionLevel="normal" />
+
+
+</manifest>
