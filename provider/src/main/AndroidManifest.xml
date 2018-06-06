@@ -26,7 +26,6 @@
             android:authorities="com.ekwing.wisdom.teacher.EkwContentProvider"
             android:exported="true"
             android:grantUriPermissions="true"
-            android:process=":provider"
             android:readPermission="com.ekwing.wisdom.permission.READ_CONTENT"
             android:writePermission="com.ekwing.wisdom.permission.WRITE_CONTENT" />
 

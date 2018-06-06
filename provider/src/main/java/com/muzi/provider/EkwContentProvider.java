@@ -22,6 +22,9 @@ import java.util.Set;
 public class EkwContentProvider extends ContentProvider {
     private static final int CODE_LOGIN = 1;
     public static final String AUTHORITY = "com.ekwing.wisdom.teacher.EkwContentProvider";  //授权
+    public static final String PATH = "login";
+    public static Uri uri = Uri.parse("content://" + AUTHORITY + "/" + PATH);
+
     private static final UriMatcher mUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
@@ -185,6 +188,15 @@ public class EkwContentProvider extends ContentProvider {
             editor.remove(key);
         }
         editor.apply();
+    }
+
+    /**
+     * 通知ContentResolver数据刷新
+     *
+     * @param context
+     */
+    public static void notifyChange(Context context) {
+        context.getContentResolver().notifyChange(uri, null);
     }
 
 }

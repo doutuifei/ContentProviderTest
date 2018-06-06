@@ -26,6 +26,11 @@
         android:layout_height="wrap_content"
         android:text="Delete" />
 
+    <Button
+        android:id="@+id/btnClean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clean" />
 
     <TextView
         android:id="@+id/text"

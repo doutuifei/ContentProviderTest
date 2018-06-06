@@ -1,5 +1,8 @@
 ## ContentProvide
 
+### 注意
+数据改变时需要调用``` EkwContentProvider.notifyChange(context);```通知数据刷新。
+
 ### 1.配置权限
 ```
     <!--provider读写权限-->
@@ -42,4 +45,16 @@
     ContentResolver contentResolver = getContentResolver();
     String[] values = new String[]{"sp_is_logined"};//删除登录状态
     contentResolver.delete(uri, null, values);
+```
+
+### 4.监听数据刷新
+
+#### 1.设置监听
+```
+    registerContentObserver(Uri uri, boolean notifyForDescendants,ContentObserver observer)
+```
+
+#### 2.取消监听
+```
+    unregisterContentObserver(ContentObserver observer);
 ```
